@@ -1,0 +1,110 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#upload-btn {
+    width: 80px;
+    height: 40px;
+    border-radius: 20px; /* 圆角矩形 */
+    background-color: #1AAD19; /* 微信绿色 */
+    color: white;
+    border: none;
+    font-size: 24px; /* 加号大小 */
+    line-height: 40px; /* 垂直居中 */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#upload-btn:hover {
+    background-color: #179B0F;
+    transform: scale(1.05);
+}
+
+#upload-btn:focus {
+    outline: none;
+}
+
+#convert-btn {
+    width: 40px; /* 调整按钮大小 */
+    height: 40px;
+    border-radius: 20px; /* 圆角矩形 */
+    background-color: #FF8C00; /* 橙色 */
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px; /* 与导入按钮的间距 */
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#convert-btn:hover {
+    background-color: #FFA500; /* 橙色变亮 */
+    transform: scale(1.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: 1px solid #bbb; /* 线条颜色 */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #e1e1e1; /* 类型名称行颜色 */
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 进度条样式 */
+#progress-container {
+    display: none; /* 默认隐藏 */
+    width: 15%; /* 调整进度条长度 */
+    margin: 20px auto;
+    background-color: #e1e1e1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#progress-bar {
+    height: 20px;
+    background-color: #1AAD19; /* 微信绿色 */
+    width: 0%;
+    border-radius: 10px;
+    transition: width 3s linear; /* 更慢的动画速度 */
+}
+
+/* 隐藏表格 */
+#result-table {
+    display: none;
+}
