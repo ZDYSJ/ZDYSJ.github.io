@@ -22,11 +22,13 @@
 
     <!-- 主内容 -->
     <div id="main-content">
-        <div class="button-container">
-            <button id="convert-btn"><i class="fas fa-exchange-alt"></i></button>
-            <button id="upload-btn">+</button>
-            <input type="file" id="file-input">
+        <div class="top-toolbar">
+            <div class="button-container">
+                <button id="convert-btn"><i class="fas fa-exchange-alt"></i></button>
+                <button id="upload-btn">+</button>
+            </div>
         </div>
+        <input type="file" id="file-input">
         
         <div id="progress-container">
             <div id="progress-bar"></div>
@@ -40,6 +42,7 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <script src="script.js"></script>
 </body>
