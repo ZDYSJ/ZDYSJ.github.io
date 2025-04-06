@@ -1,3 +1,4 @@
+// script.js
 const PASSWORD_HASH = 'feb6d05b28892231da4fd5e15314bf958d83655057de561566bdccbc525c812a';
 
 async function verifyPassword() {
@@ -8,7 +9,6 @@ async function verifyPassword() {
         const input = inputElement.value;
         let hashHex;
 
-        // 备用加密方案
         if (typeof sha256 === 'function') {
             hashHex = sha256(input);
         } else if (window.crypto?.subtle) {
@@ -44,18 +44,14 @@ async function verifyPassword() {
 
 function initializeApp() {
     try {
-        // 初始化界面状态
         document.getElementById('table-container').style.display = 'none';
         
-        // 文件上传
         document.getElementById('upload-btn').addEventListener('click', () => {
             document.getElementById('file-input').click();
         });
 
-        // 文件处理
         document.getElementById('file-input').addEventListener('change', handleFileUpload);
         
-        // PDF转换
         document.getElementById('convert-btn').addEventListener('click', () => {
             window.open('https://www.pdfpai.com', '_blank');
         });
@@ -73,12 +69,10 @@ function handleFileUpload(event) {
     const progressContainer = document.getElementById('progress-container');
     const progressBar = document.getElementById('progress-bar');
     
-    // 重置状态
     document.getElementById('table-container').style.display = 'none';
     progressContainer.style.display = 'block';
     progressBar.style.width = '0%';
 
-    // 进度动画
     setTimeout(() => progressBar.style.width = '100%', 100);
 
     const reader = new FileReader();
@@ -87,6 +81,8 @@ function handleFileUpload(event) {
             progressContainer.style.display = 'none';
             processExcelData(e.target.result);
             document.getElementById('table-container').style.display = 'block';
+            // 添加has-table类使按钮上移
+            document.body.classList.add('has-table');
         }, 1000);
     };
     reader.onerror = (error) => {
@@ -132,7 +128,6 @@ function renderTable(data) {
     const thead = table.querySelector('thead');
     const tbody = document.getElementById('result-body');
 
-    // 生成表头
     thead.innerHTML = `
         <tr>
             <th>交易类型</th>
@@ -145,7 +140,6 @@ function renderTable(data) {
         </tr>
     `;
 
-    // 生成表格内容
     tbody.innerHTML = Object.entries(data)
         .sort((a, b) => b[1].count - a[1].count)
         .map(([key, item]) => {
@@ -163,7 +157,6 @@ function renderTable(data) {
             `;
         }).join('');
 
-    // 绑定详情按钮
     document.querySelectorAll('.details-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             try {
