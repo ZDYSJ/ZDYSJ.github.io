@@ -8,33 +8,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="button-container">
-        <button id="convert-btn"><i class="fas fa-exchange-alt"></i></button>
-        <button id="upload-btn">+</button>
-        <input type="file" id="file-input" style="display: none;" accept=".xlsx, .xls, .csv" />
+    <!-- 密码验证层 -->
+    <div id="password-layer">
+        <div class="password-box">
+            <h2 class="password-title">🔐 请输入访问密码</h2>
+            <div class="input-wrapper">
+                <input type="password" id="password-input" placeholder="输入密码">
+                <i class="fas fa-check success-check"></i>
+            </div>
+            <button onclick="verifyPassword()" class="verify-btn">验证</button>
+        </div>
     </div>
-    
-    <!-- 进度条容器 -->
-    <div id="progress-container">
-        <div id="progress-bar"></div>
+
+    <!-- 主内容 -->
+    <div id="main-content">
+        <div class="button-container">
+            <button id="convert-btn"><i class="fas fa-exchange-alt"></i></button>
+            <button id="upload-btn">+</button>
+            <input type="file" id="file-input">
+        </div>
+        
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        
+        <div id="table-container">
+            <table id="result-table">
+                <thead></thead>
+                <tbody id="result-body"></tbody>
+            </table>
+        </div>
     </div>
-    
-    <table id="result-table">
-        <thead>
-            <tr>
-                <th>交易类型</th>
-                <th>收/支</th>
-                <th>交易方式</th>
-                <th>金额</th>
-                <th>交易对方</th>
-                <th>发生次数</th>
-                <th>详情</th> <!-- 添加详情按钮列 -->
-            </tr>
-        </thead>
-        <tbody id="result-body">
-            <!-- 结果将插入这里 -->
-        </tbody>
-    </table>
 
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <script src="script.js"></script>
