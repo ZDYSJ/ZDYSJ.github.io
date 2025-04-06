@@ -1,4 +1,4 @@
-const PASSWORD_HASH = '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92';
+const PASSWORD_HASH = 'feb6d05b28892231da4fd5e15314bf958d83655057de561566bdccbc525c812a';
 
 async function verifyPassword() {
     const input = document.getElementById('password-input').value;
