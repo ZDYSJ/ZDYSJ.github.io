@@ -63,7 +63,7 @@ function initializeApp() {
     document.getElementById('file-input').addEventListener('change', handleFileUpload);
     
     document.getElementById('convert-btn').addEventListener('click', () => {
-        window.open('https://www.pdfpai.com', '_blank');
+        window.open('https://smallpdf.com/cn/pdf-to-excel#r=convert-to-excel', '_blank');
     });
     
     // 重置状态
