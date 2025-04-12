@@ -1,244 +1,259 @@
 /* styles.css */
 /* 基础样式 */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: #f8f9fa;
-    color: #333;
-    margin: 0;
-    min-height: 100vh;
-    -webkit-tap-highlight-color: transparent;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  margin: 0;
+  min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* 密码验证界面 */
 #password-layer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255,255,255,0.96);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff9500 0%, #ffcc80 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .password-box {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    text-align: center;
+  background: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 350px;
+  width: 90%;
 }
 
 .password-title {
-    color: #2c3e50;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
 }
 
 .input-wrapper {
-    position: relative;
-    width: 260px;
-    margin: 0 auto 1.5rem;
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 #password-input {
-    width: 100%;
-    padding: 12px 20px;
-    border: 2px solid #3498db;
-    border-radius: 25px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #ffcc80;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
 #password-input:focus {
-    border-color: #2980b9;
-    box-shadow: 0 0 8px rgba(52,152,219,0.2);
+  border-color: #ff9500;
+  box-shadow: 0 0 8px rgba(255,149,0,0.4);
 }
 
 .verify-btn {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background: #ff9500;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .verify-btn:hover {
-    background: #2980b9;
-    transform: translateY(-2px);
+  background: #e08900;
+  transform: translateY(-2px);
 }
 
 /* 成功提示 */
 .success-check {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #2ecc71;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #2ecc71;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
 .success-check.active {
-    opacity: 1;
-    transform: translateY(-50%) scale(1.2);
+  opacity: 1;
+  transform: translateY(-50%) scale(1.2);
 }
 
 /* 错误状态 */
 .input-error {
-    border-color: #e74c3c !important;
-    animation: shake 0.4s ease-in-out;
+  border-color: #e74c3c !important;
+  animation: shake 0.4s ease-in-out;
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(8px); }
-    50% { transform: translateX(-8px); }
-    75% { transform: translateX(8px); }
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(8px); }
+  50% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
 }
 
 /* 功能按钮容器 */
 #floating-buttons {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #floating-buttons.uploaded {
-    top: 30px;
-    transform: translate(-50%, 0);
+  top: 30px;
+  transform: translate(-50%, 0);
 }
 
 .button-container {
-    display: flex;
-    gap: 25px;
-    padding: 15px;
-    background: rgba(255,255,255,0.98);
-    border-radius: 40px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    backdrop-filter: blur(8px);
+  display: flex;
+  gap: 25px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 40px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
 }
 
 /* 功能按钮 */
 #upload-btn, #convert-btn {
-    width: 60px;
-    height: 60px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
 #upload-btn {
-    background: #2ecc71;
-    color: white;
+  background: #2ecc71;
+  color: #fff;
 }
 
+/* 修改跳转网站按钮为纯橙色 */
 #convert-btn {
-    background: #e67e22;
-    color: white;
+  background: #ff9500;
+  color: #fff;
+}
+
+#convert-btn:hover {
+  background: #e08900;
 }
 
 #upload-btn:hover, #convert-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* 进度条 */
 #progress-container {
-    display: none;
-    width: 300px;
-    height: 8px;
-    background: #ecf0f1;
-    border-radius: 4px;
-    margin: 40px auto;
-    overflow: hidden;
+  display: none;
+  width: 300px;
+  height: 8px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin: 40px auto;
+  overflow: hidden;
 }
 
 #progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, #2ecc71, #27ae60);
-    width: 0%;
-    transition: width 0.5s ease;
+  height: 100%;
+  background: linear-gradient(90deg, #2ecc71, #27ae60);
+  width: 0%;
+  transition: width 0.5s ease;
 }
 
 /* 数据表格 */
 #table-container {
-    display: none;
-    max-width: 1200px;
-    margin: 100px auto 40px;
-    padding: 0 20px;
+  display: none;
+  max-width: 1200px;
+  margin: 140px auto 40px;  /* 提高顶部外边距，避免浮动按钮遮挡 */
+  padding: 0 20px;
 }
 
 #result-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* 为实现分格效果，添加右侧边框 */
 th, td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ecf0f1;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ecf0f1;
+  border-right: 1px solid #ecf0f1;
 }
 
-th {
-    background: #3498db;
-    color: white;
-    font-weight: 500;
+/* 调整表头背景为较浅灰色 */
+#result-table th {
+  background: #eaeaea;
+  color: #000;
+  font-weight: normal;
 }
 
-tr:hover {
-    background: #f8f9fa;
+#result-table tr:last-child td {
+  border-bottom: none;
 }
 
+#result-table th:last-child, #result-table td:last-child {
+  border-right: none;
+}
+
+/* 查看详情按钮样式 */
 .details-btn {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background: #f8f8f8;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .details-btn:hover {
-    background: #2980b9;
-    transform: translateY(-2px);
+  background: #e0e0e0;
+  transform: translateY(-2px);
 }
 
 /* 移动端适配 */
 @media (max-width: 768px) {
-    #floating-buttons {
-        width: 90%;
-    }
-    
-    .button-container {
-        width: fit-content;
-        margin: 0 auto;
-    }
-    
-    #table-container {
-        margin-top: 80px;
-    }
-    
-    th, td {
-        padding: 12px;
-    }
+  #floating-buttons {
+    width: 90%;
+  }
+  
+  .button-container {
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  #table-container {
+    margin-top: 80px;
+  }
+  
+  th, td {
+    padding: 12px;
+  }
 }
