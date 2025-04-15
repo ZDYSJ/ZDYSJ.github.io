@@ -6,6 +6,10 @@
   <title>智能账单管理系统</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
 <body>
   <!-- 密码验证层 -->
@@ -13,16 +17,22 @@
     <div class="password-box">
       <h2 class="password-title">访问认证</h2>
       <div class="input-wrapper">
-        <input type="password" id="password-input" placeholder="请输入访问密码">
-        <i class="fas fa-check success-check"></i>
+        <input type="text" id="username-input" placeholder="请输入账号">
       </div>
-      <button onclick="verifyPassword()" class="verify-btn">提交验证</button>
+      <div class="input-wrapper">
+        <input type="password" id="password-input" placeholder="请输入密码">
+      </div>
+      <!-- 错误提示区域 -->
+      <div id="error-message" class="error-message"></div>
+      <button id="verify-btn" onclick="verifyPassword()" class="verify-btn">提交验证</button>
     </div>
   </div>
 
   <!-- 主功能界面 -->
   <div id="main-content" style="display:none;">
-    <!-- 功能按钮 -->
+    <div id="quota-display">剩余次数：0</div>
+    
+    <!-- 浮动按钮区域 -->
     <div id="floating-buttons">
       <div class="button-container">
         <button id="convert-btn"><i class="fas fa-exchange-alt"></i></button>
@@ -30,15 +40,14 @@
       </div>
     </div>
     
-    <!-- 隐藏的文件上传（由“+”按钮触发） -->
     <input type="file" id="file-input" accept=".xlsx, .xls" style="display:none;">
     
-    <!-- 进度条 -->
+    <!-- 屏幕中间的进度条 -->
     <div id="progress-container">
       <div id="progress-bar"></div>
     </div>
     
-    <!-- 数据表格 -->
+    <!-- 表格区域（已取消蒙版效果） -->
     <div id="table-container">
       <table id="result-table">
         <thead>
@@ -57,10 +66,8 @@
     </div>
   </div>
 
-  <!-- 第三方库 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
-  <!-- 主逻辑 -->
   <script src="script.js"></script>
 </body>
 </html>
