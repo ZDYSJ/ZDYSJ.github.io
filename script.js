@@ -48,7 +48,7 @@ async function verifyPassword() {
       pwdEl.classList.add('input-error-shake');
       setTimeout(()=>pwdEl.classList.remove('input-error-shake'),300);
     } else if(err.message==='NO_QUOTA'){
-      alert('使用次数已用完');
+      alert('请联系管理员购买次数');
     }
   }
 }
