@@ -200,12 +200,12 @@ function renderTable(data) {
     .map(([k,it])=>{
       const [cp,amt,ie] = k.split('-');
       return `<tr>
-        <td data-label="对象">${cp}</td>
-        <td data-label="次数">${it.cnt} 次</td>
-        <td data-label="金额">¥${amt}</td>
-        <td data-label="收支">${ie}</td>
-        <td data-label="类型">${it.recs[0].type}</td>
-        <td data-label="方式">${it.recs[0].method}</td>
+        <td data-label="交易对象：">${cp}</td>
+        <td data-label="交易次数：">${it.cnt} 次</td>
+        <td data-label="交易金额：">¥${amt}</td>
+        <td data-label="收支类型：">${ie}</td>
+        <td data-label="交易类型：">${it.recs[0].type}</td>
+        <td data-label="交易方式：">${it.recs[0].method}</td>
         <td data-label="详情">
           <button class="details-btn" data-details='${JSON.stringify(it.recs)}' data-cp="${cp}">查看</button>
         </td>
